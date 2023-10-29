@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <table border="3">
+        <tr>
+            <td>name</td>
+            
+            <td>Departement</td>
+            <td>Action</td>
+        </tr>
+        {% for i in Affichage %}
+        <tr>
+            
+            <td>{{i.name}}</td>
+            
+            
+        
+            <td><a href="{{path('Modifierdep,{'id':i.id})}}">Edit</a></td>
+            <td><a href="{{path('Supprimerdep',{'id':i.id})}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="{{ path('Ajoutdep') }}">
+        <button type="submit">Create New</button>
+    </form>
+</html>

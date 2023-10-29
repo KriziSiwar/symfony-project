@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <table border="3">
+        <tr>
+            <td>Title</td>
+            <td>PublicationDate</td>
+            <td>published</td>
+            <td>Category</td>
+            <td>Author</td>
+            <td>Action</td>
+            <td>Action</td>
+            <td>Action</td>
+        </tr> 
+        
+        
+        
+    <p> 
+        Number of published books: {{ publishedCount }}
+        <br>
+        Number of unpublished books: {{ unpublishedCount }}
+    </p>
+
+
+        {% for i in Affichage %}
+        <tr>
+            
+            <td>{{i.title}}</td>
+            <td>{{i.getPublicationDate|date('Y-m-d')}}</td>
+            <td>{{i.published}}</td>
+            <td>{{i.category}}</td>
+            <td>{{i.author.getUsername}}</td>
+            <td><a href="{{path('ModifierBook',{'id':i.id})}}">Edit</a></td>
+            <td><a href="{{path('SupprimerBook',{'id':i.id})}}">Delete</a></td>
+             <td><a href="{{path('AffichageBook',{'id':i.id})}}">Show</a></td>
+
+
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="{{ path('AjoutBook') }}">
+        <button type="submit">Create New</button>
+    </form>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <table border="3">
+        <tr>
+            <td>name</td>
+           <td>nbrH</td>
+
+            <td>Salle</td>
+            <td>Action</td>
+        </tr>
+        {% for i in Affichage %}
+        <tr>
+            
+            <td>{{i.name}}</td>
+             <td>{{i.nbrH}}</td>
+            
+            
+        
+            <td><a href="{{path('ModifierSalle,{'id':i.id})}}">Edit</a></td>
+            <td><a href="{{path('SupprimerSalle',{'id':i.id})}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="{{ path('AjoutSalle') }}">
+        <button type="submit">Create New</button>
+    </form>
+</html>

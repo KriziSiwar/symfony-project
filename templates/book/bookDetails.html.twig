@@ -1,0 +1,20 @@
+
+
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Book Details</h1>
+    <dl>
+        <dt>Title:</dt>
+        <dd>{{ book.title }}</dd>
+        <dt>Category:</dt>
+        <dd>{{ book.category }}</dd>
+        <dt>Publication Date:</dt>
+        <dd>{{ book.publicationDate|date('Y-m-d') }}</dd>
+        <dt>Published:</dt>
+        <dd>{{ book.published ? 'Yes' : 'No' }}</dd>
+        <dt>Author:</dt>
+        <dd>{{ book.author.name }}</dd>
+    </dl>
+    <a href="{{ path('book_list') }}">Back to Book List</a>
+{% endblock %}
